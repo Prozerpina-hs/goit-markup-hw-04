@@ -29,21 +29,22 @@ p {
     margin-bottom: 0;
 }
 
- ul, li {
+ul, li {
     list-style: none;
     padding: 0;
     margin: 0;
- }
+}
 
 a {
     text-decoration: none;
 }
+
 img {
     display: block;
     max-width: 100%;
     height: auto;
     margin-right: 0;
-    /* object-fit: contain; */
+    object-fit: contain;
 } 
 
 .visually-hidden {
@@ -97,6 +98,7 @@ img {
     line-height: 1.19;
     letter-spacing: 0.02em;
 }
+
 .logo-blue {
     color: var(--nav-color);
 }
@@ -140,6 +142,12 @@ img {
 .contact-list:first-child {
     margin-left: 0;
 }
+.contacts-icon {
+    margin-right: 10px;
+    display: inline-block; 
+    align-self: center;
+    fill: currentColor;   
+}
 
 .contacts-link {
     display: flex;
@@ -149,18 +157,6 @@ img {
     font-size: 14px;
     Line-height: 1.14;
     letter-spacing: 0.02em;
-}
-
-.contacts-icon{
-    display: inline-flex; 
-    fill: var(--secondary-text-color);
-    margin-right: 10px;
-}
-
-
-.contacts-icon:focus,
-.contacts-icon:hover {
-    fill: var(--nav-color);
 }
 
 .navi-link:focus,
@@ -173,17 +169,17 @@ img {
 .foot-add-map:hover {
     color: var(--nav-color);
 }
-     
+  
+
 /* Hero */
 .hero {
     padding: 200px 0;
     max-width: 1600px;
-    height: 600px;
     margin-left: auto;
     margin-right: auto;
     background-size: cover;
     background-position: center;
-    background-color: var(--secondary-background-color); 
+    background-color: #c4c4c4; 
     background-image: 
     linear-gradient(to left, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url("../images/studio/hero-img.jpg");
@@ -205,7 +201,6 @@ img {
 }
 
 .hero-button {
-    display: inline-block;
     border: 0;
     padding: 10px 32px;
     margin-top: 30px;
@@ -218,6 +213,7 @@ img {
     font-size: 16px;
     line-height: 1.88;
     letter-spacing: 0.06em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
    
     cursor: pointer;
 }
@@ -239,13 +235,14 @@ img {
 
 /* Картинки */
 .peculiarities-icon-item {
-    display: block;
+    display: flex;
     margin-bottom: 30px;
     content: "";
     background-repeat: no-repeat;
     background-color: #F5F4FA;
     height: 120px;
-    padding: 25px 100px;
+    justify-content: center;
+    align-items: center;
    
 }
 
@@ -276,7 +273,7 @@ img {
 
 .capabilities-title,
 .team-title,
-.clients-title {
+.client-title {
     color: var(--primary-text-color);
     font-weight: 700;
     font-size: 36px;
@@ -304,9 +301,13 @@ img {
     border-radius: 0px 0px 4px 4px;
  }
 
-.team-name {
-    margin-top: 30px;
+ .team-cards {
+    padding: 30px;
+ }
 
+
+
+.team-name {
     color: var(--primary-text-color);
     font-weight: 500;
     font-size: 16px;
@@ -320,11 +321,9 @@ img {
     line-height: 1.19;
 }
 /* Соц. лінки */
-.social-conteiner {
-    padding: 16px 32px 30px 32px;    
-}
-
 .social-list {
+    margin-top: 16px;
+    
     display: flex;
     width: 206px;
     height: 44px;
@@ -344,68 +343,60 @@ img {
 .social-link {
     display: inline-block;
     padding: 12px;
+
+    color: #AFB1B8;
 }
 
 .social-icon {
     display: inline-block;
-    content: "";
-    fill: #AFB1B8;
+    fill: currentColor;
 }
 
 .social-link:hover,
 .social-link:focus {
+    color: var(--main-white-color);
     background-color: var(--nav-color);
     width: 44px;
     height: 44px;
     border-radius: 50%;
 }
 
-.social-icon:hover,
-.social-icon:focus {
-    fill: var(--main-white-color);
-}
 
 /* Постійні клієнти */
-
-.clients-list {
+.client-list {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 50px;
     gap: 30px; 
 }
 
-.clients-item {
+.client-item {
     display: inline-flex;
+    flex-basis: calc((100%-150px)/6);
+}
+.client-link {
+    display: inline-block;
+    padding: 16px 32px;
     width: 170px;
     height: 92px;
     border: 1px solid #AFB1B8;
     border-radius: 4px;
 
-    flex-basis: calc((100%-150px)/6);
+    color: #afb1b8;
 }
-
-.client-link {
-    display: flex;
-    padding: 16px 32px;
+.client-link:hover,
+.client-link:focus {
+    color: var(--nav-color);
+    border-color: var(--nav-color);
 }
 
 .client-icon {
-    display: inline-flex;
-    content: "";
-    fill: #afb1b8;
-    max-width: 106px;
-    max-height: 60px;
-}
+    display: inline-block;
 
-.clients-item:hover,
-.clients-item:focus {
-    border-color: var(--nav-color)
-}
-
-.client-icon:hover,
-.client-icon:focus {
-    fill: var(--nav-color);
+    fill: currentColor;
+    width: 106px;
+    height: 60px;
 }
 
 /* Подвал */
@@ -533,9 +524,11 @@ address {
 .project-list {
     background-color: var(--main-white-color);
 }
-
-.project-list:hover,
-.project-list:focus {
+.project-link {
+    display: inline-block;
+}
+.project-link:hover,
+.project-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
                 0px 4px 4px rgba(0, 0, 0, 0.06), 
                 1px 4px 6px rgba(0, 0, 0, 0.16);
